@@ -1,0 +1,18 @@
+@import "modules/fatherAndSon.css";
+@import "modules/list-area.css";
+@import "modules/heading-area.css";
+@import "modules/input-area.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+  box-sizing: border-box;
+  background: url('images/background18.jpg');
+  background-repeat: no-repeat;
+  background-size:  cover;
+}
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  font-weight: 700;
+}

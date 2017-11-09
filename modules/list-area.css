@@ -1,0 +1,57 @@
+.list {
+  display: grid;
+  grid-area: 2/2/9/7;
+  /*background-color: rgba(241, 113, 118, 0.5);*/
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 10px;
+}
+
+
+
+.list-entries {
+  grid-area: 2/2/9/7;
+  background-color: rgba(224, 242, 236, 0.4);
+  border: inset rgba(15, 105, 91, 0.3) 2px;
+  display: grid;
+  grid-template: 3vw 1fr/1fr 3vh;
+  background: url('../images/background7.jpg')
+}
+
+.list-entries:hover {
+    border: inset rgba(15, 105, 91, 0.7) 2px;
+}
+
+.x-mark {
+  width: 1rem;
+  height: 1rem;
+}
+
+.counter {
+  grid-row: 1/1;
+  grid-column: 2/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(140, 140, 140, 0.6);
+  font-size: 1.8rem;
+}
+
+
+.remove-button {
+  width: 5rem;
+  height: 4rem;
+  opacity: 0.4;
+  grid-area: 2/7/2/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-button:hover {
+    opacity: 1;
+}
+.remove-button-img {
+  width: 4.5rem;
+  height: 4.5rem;
+}

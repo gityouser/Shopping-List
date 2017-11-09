@@ -1,0 +1,29 @@
+.father {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+}
+
+* {
+  border-radius: 10px;
+}
+
+/*@media(min-width: 1000px) {
+    .father {
+      max-width: 80vw;
+    }
+}
+
+@media(min-width: 1300px) {
+  .father {
+    max-width: 60vw;
+  }
+}*/
+.son {
+  display: grid;
+  grid-area: 2/2/10/9;
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+}
