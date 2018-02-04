@@ -22,7 +22,7 @@ function updateList () {
     let newLi = document.createElement('li');
     let newImg = document.createElement('img');
 
-    newLi.innerHTML = item.itemName;
+    newLi.innerHTML = item.name;
     if(item.completed) {
       newLi.style.cssText = "color: lightgrey; text-decoration: line-through;"
     }
@@ -42,6 +42,9 @@ function updateList () {
     newImg.addEventListener('click', function(e) {
       e.stopPropagation();
       inputList.splice(e.target.dataset.index, 1);
+      fetch(`/pisici/${e.target.dataset.index}`, {
+      	method:"DELETE"
+      })
       updateList();
       updateCounter();
 
@@ -56,10 +59,18 @@ const addInput = document.querySelector(".form-input");
 addForm.addEventListener('submit', function(e) {
   e.preventDefault(); //Prevent auto-submit.
   inputList.push({
-    itemName: addInput.value,
+    name: addInput.value,
     completed: false
-
   });
+
+  fetch("/pisici", {
+    method:"POST",
+    body:JSON.stringify({pisica: addInput.value}),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  })
+
   addInput.value = ''; //Clear the input after submit.
   updateCounter();
   updateList();
@@ -76,7 +87,13 @@ removeButton.addEventListener('click', function(){
   updateList();
   console.log("remove was pressed");
 })
-// Click on the 'X' and remove the item next to it.
+
+fetch("/pisici").then(r => r.json()).then((data) => {
+  inputList = data;
+  updateCounter();
+  updateList();
+} )
+
 
 
 
